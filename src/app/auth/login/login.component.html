@@ -1,0 +1,59 @@
+<div class="container mt-4">
+    <div class="row">
+      <div class="col-4"></div>
+      <div class="col-4 mt-5 login">
+        <h1 class="text-center">LOGIN</h1>
+        <!-- Inicio del Formulario -->
+        <form>
+          <!-- Campo de Email -->
+          <div class="form-group">
+          
+            <div class="input-group">
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                placeholder="Introduce tu correo"
+                required
+              />
+              <div class="input-group-append">
+                <span class="input-group-text">
+                  <i class="fas fa-envelope"></i>
+                </span>
+              </div>
+            </div>
+          </div>
+  
+          <!-- Campo de Password -->
+          <div class="form-group">
+           
+            <div class="input-group">
+              <input
+                [type]="showPassword ? 'text' : 'password'"
+                class="form-control"
+                id="password"
+                placeholder="Introduce tu contraseña"
+                required
+              />
+              <div class="input-group-append">
+                <span class="input-group-text">
+                  <i
+                    class="fas"
+                    [ngClass]="showPassword ? 'fa-eye-slash' : 'fa-eye'"
+                    (click)="togglePassword()"
+                    style="cursor: pointer;"
+                  ></i>
+                </span>
+              </div>
+            </div>
+          </div>
+  
+          <!-- Botón de Submit -->
+          <button type="submit" class="btn btn-primary btn-block mt-3 mb-3">Iniciar Sesión</button>
+        </form>
+        <!-- Fin del Formulario -->
+      </div>
+      <div class="col-4"></div>
+    </div>
+  </div>
+  
