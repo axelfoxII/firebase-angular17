@@ -4,7 +4,7 @@
       <div class="col-4 mt-5 login">
         <h1 class="text-center">LOGIN</h1>
         <!-- Inicio del Formulario -->
-        <form>
+        <form (ngSubmit)="login(forma)" #forma= "ngForm">
           <!-- Campo de Email -->
           <div class="form-group">
           
@@ -13,6 +13,8 @@
                 type="email"
                 class="form-control"
                 id="email"
+                name="email"
+                [ngModel]="usuario.email"
                 placeholder="Introduce tu correo"
                 required
               />
@@ -32,6 +34,8 @@
                 [type]="showPassword ? 'text' : 'password'"
                 class="form-control"
                 id="password"
+                name="password"
+                [ngModel]="usuario.password"
                 placeholder="Introduce tu contraseña"
                 required
               />
@@ -49,7 +53,7 @@
           </div>
   
           <!-- Botón de Submit -->
-          <button type="submit" class="btn btn-primary btn-block mt-3 mb-3">Iniciar Sesión</button>
+          <button type="submit" class="btn btn-primary btn-block mt-3 mb-3" [disabled]="forma.invalid" >Iniciar Sesión</button>
         </form>
         <!-- Fin del Formulario -->
       </div>

@@ -5,17 +5,21 @@ import { PagesRoutingModule } from './pages-routing.module';
 import { UsuariosComponent } from './usuarios/usuarios.component';
 import { PagesComponent } from './pages.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { FormsModule } from '@angular/forms';
+import { UsuarioComponent } from './usuario/usuario.component';
 
 
 @NgModule({
   declarations: [
     UsuariosComponent,
     PagesComponent,
-    NavbarComponent
+    NavbarComponent,
+    UsuarioComponent
   ],
   imports: [
     CommonModule,
-    PagesRoutingModule
+    PagesRoutingModule,
+    FormsModule
   ]
 })
 export class PagesModule { }
