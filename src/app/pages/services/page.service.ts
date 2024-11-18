@@ -1,19 +1,19 @@
 // Importamos los módulos necesarios para el servicio
-import { Injectable } from '@angular/core'; // Decorador para inyectar este servicio en cualquier componente
-import { environment } from '../../../environments/environment'; // Importamos las configuraciones del entorno, que contiene la URL del backend
-import { HttpClient } from '@angular/common/http'; // HttpClient permite hacer solicitudes HTTP
-import { map } from 'rxjs/operators'; // map transforma los datos recibidos en las respuestas HTTP
-import { UsuarioModel } from '../../models/usuario.model'; // Modelo de datos del usuario
+import { Injectable } from '@angular/core'; 
+import { environment } from '../../../environments/environment';
+import { HttpClient } from '@angular/common/http'; 
+import { map } from 'rxjs/operators'; 
+import { UsuarioModel } from '../../models/usuario.model';
 
-// Definimos la constante URL que apunta al backend, obtenida desde el archivo de entorno
+
 const URL = environment.urlServer;
 
 @Injectable({
-  providedIn: 'root' // Hace que este servicio esté disponible en toda la aplicación
+  providedIn: 'root' 
 })
 export class PageService {
 
-  constructor(private http: HttpClient) { } // Inyectamos HttpClient para realizar solicitudes HTTP
+  constructor(private http: HttpClient) { } 
 
   // Método para crear un usuario en el backend
   crearUsuario(usuario: UsuarioModel) {
