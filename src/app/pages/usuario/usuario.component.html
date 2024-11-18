@@ -1,0 +1,56 @@
+<div class="container">
+    <h1>Usuario <small>Crear o Editar Usuario</small></h1>
+    <hr>
+<div class="row text-right">
+     <div class="col">            
+            <button class="btn btn-danger" routerLink="/admin-panel/usuarios"><i class="fas fa-arrow-left"></i> Regresar</button>
+     </div>   
+</div>
+
+<div class="row  animate__animated animate__fadeIn">
+    <div class="col">
+        <form (ngSubmit)="guardar(forma)" #forma= "ngForm" >
+            <div class="form-group">
+                <label>Firebase ID</label>
+                <input [(ngModel)]="usuario.id" name="id" type="text" class="form-control" placeholder="Firebase ID" disabled="disabled">
+            </div>
+            <div class="form-group">
+                <label>Nombre</label>
+                <input [(ngModel)]="usuario.nombre" name="nombre" type="text" class="form-control" placeholder="Nombre" required>
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input [(ngModel)]="usuario.email" name="email" type="email" class="form-control" placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
+            </div>
+            <div class="form-group" *ngIf="!isEditing">
+                <label for="password">Contraseña:</label>
+                <!-- Usamos newPassword aquí para la creación del usuario -->
+                <input type="password" id="password" class="form-control" [(ngModel)]="newPassword" name="newPassword" placeholder="Ingrese una contraseña" required>
+              </div>
+              
+            <div class="form-group" *ngIf="isEditing">
+                <label for="encryptedPassword">Contraseña (encriptada):</label>
+                <input type="text" id="encryptedPassword"class="form-control" [value]="usuario.password" disabled>
+            
+                <!-- Campo para nueva contraseña opcional -->
+                <label for="newPassword">Nueva Contraseña (opcional):</label>
+                <input type="password" id="newPassword" class="form-control" [(ngModel)]="newPassword" name="newPassword" placeholder="Ingrese una nueva contraseña">
+              
+            </div>
+            <div class="form-group">
+                <label>Estado</label><br>
+                <button *ngIf="usuario.estado" (click)="usuario.estado= false" class="btn btn-success w-50">Activo</button>
+                <button *ngIf="!usuario.estado" (click)="usuario.estado= true" class="btn btn-danger w-50">Inactivo</button>                
+            </div>
+            <hr>
+            <div class="form-group text-center">
+            <button class="btn btn-primary w-25" type="submit" [disabled]="forma.invalid" ><i class="fas fa-save"></i> Guardar</button> 
+            </div>   
+        </form>
+    </div>
+</div>
+
+
+
+
+</div>
